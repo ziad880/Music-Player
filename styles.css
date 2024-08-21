@@ -15,7 +15,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-    max-width: 300px;
+    max-width: 350px;
     text-align: center;
 }
 #album-cover {
@@ -60,6 +60,9 @@ button {
     margin: 0 15px;
     transition: transform 0.2s;
 }
+#r{
+    margin-top: 15px;
+}
 button:hover {
     transform: scale(1.2);
 }
@@ -68,4 +71,7 @@ button:hover {
 }
 #prev, #next {
     color: #b3b3b3;
+}
+#repeat.active, #shuffle.active {
+    color: #1db954;
 }
