@@ -87,6 +87,7 @@ function setProgress(e) {
 
     audio.currentTime = (clickX / width) * duration;
 }
+
 // تبديل تشغيل متكرر
 function toggleRepeat() {
     isRepeating = !isRepeating;
@@ -106,6 +107,26 @@ function toggleShuffle() {
         repeatBtn.classList.remove('active');
     }
 }
+
+// تشغيل أغنية عشوائية
+function shuffleSong() {
+    let randomIndex;
+    do {
+        randomIndex = Math.floor(Math.random() * songs.length);
+    } while (randomIndex === songIndex);
+    songIndex = randomIndex;
+    loadSong(songs[songIndex]);
+    playSong();
+}
+
+// التعامل مع انتهاء الأغنية
+audio.addEventListener('ended', () => {
+    if (isRepeating) {
+        playSong();
+    } else {
+        nextSong();
+    }
+});
 
 // التعامل مع أحداث الأزرار
 playBtn.addEventListener('click', () => {
